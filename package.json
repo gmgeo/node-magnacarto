@@ -15,6 +15,6 @@
     "url": "https://github.com/gmgeo/node-magnacarto.git"
   },
   "scripts": {
-    "install" : "install.js"
+    "install" : "node install.js"
   }
 }
