@@ -1,5 +1,5 @@
 {
-  "name": "node-magnacarto",
+  "name": "magnacarto",
   "version": "0.1.0",
   "description": "Magnacarto Node.js bindings",
   "main": "lib/Magnacarto.js",
