@@ -1,6 +1,6 @@
 {
   "name": "magnacarto",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Magnacarto Node.js bindings",
   "main": "lib/Magnacarto.js",
   "author": "Michael Glanznig",
