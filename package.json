@@ -1,0 +1,20 @@
+{
+  "name": "node-magnacarto",
+  "version": "0.1.0",
+  "description": "Magnacarto Node.js bindings",
+  "main": "lib/Magnacarto.js",
+  "author": "Michael Glanznig",
+  "license": "MIT",
+  "dependencies": {
+    "ffi": "^2.0.0",
+    "ref-struct": "^1.0.2",
+    "shelljs": "^0.5.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gmgeo/node-magnacarto.git"
+  },
+  "scripts": {
+    "install" : "install.js"
+  }
+}
