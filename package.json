@@ -6,7 +6,9 @@
   "author": "Michael Glanznig",
   "license": "MIT",
   "dependencies": {
+    "adm-zip": "^0.4.7",
     "ffi": "^2.0.0",
+    "follow-redirects": "0.0.7",
     "ref-struct": "^1.0.2",
     "shelljs": "^0.5.3"
   },
