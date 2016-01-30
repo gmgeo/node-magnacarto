@@ -1,5 +1,7 @@
 # Magnacarto Node.js bindings
 
+[![npm](https://img.shields.io/npm/v/magnacarto.svg)](https://www.npmjs.com/package/magnacarto)
+
 **Experimental, work in progress.**
 
 Provides node.js bindings for [omniscale/magnacarto](https://github.com/omniscale/magnacarto) through [gmgeo/libmagnacarto](https://github.com/gmgeo/libmagnacarto).
