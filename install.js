@@ -6,7 +6,7 @@ var AdmZip = require('adm-zip'),
 
 var config ={};
 config.basedir = 'magnacarto';
-config.version = 'v0.1.0';
+config.version = 'v0.2.0';
 config.repositoryUrl = 'https://github.com/gmgeo/libmagnacarto';
 config.repositoryDest = path.join('magnacarto', 'src', 'github.com', 'gmgeo', 'libmagnacarto');
 
@@ -20,10 +20,10 @@ switch (process.platform) {
 
 switch (process.arch) {
     case 'x64':
-        config.arch = 'amd64';
+        config.arch = 'x64';
         break;
     case 'ia32':
-        config.arch = 'i386';
+        config.arch = 'x86';
         break;
 }
 
