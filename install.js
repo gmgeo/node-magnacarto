@@ -8,7 +8,7 @@ var config ={};
 config.basedir = 'magnacarto';
 config.version = 'v0.2.0';
 config.repositoryUrl = 'https://github.com/gmgeo/libmagnacarto';
-config.repositoryDest = path.join('magnacarto', 'src', 'github.com', 'gmgeo', 'libmagnacarto');
+config.repositoryDest = path.join('src', 'github.com', 'gmgeo', 'libmagnacarto');
 
 switch (process.platform) {
     case 'linux':
@@ -67,22 +67,20 @@ var build = function () {
       sh.exit(1);
     }
 
-    sh.cd(config.basedir);
     sh.cd(path.join('src', 'github.com', 'Masterminds', 'glide'));
 
     if (sh.exec('make bootstrap').code == 0) {
-        if (sh.exec('make build').code == 0) {
+        if (sh.exec('make build').code != 0) {
             sh.echo('Building glide failed.');
             sh.exit(1);
         }
     }
     else {
-        sh.echo('Building glide failed.');
+        sh.echo('Bootstrapping glide failed.');
         sh.exit(1);
     }
 
-    sh.cd(config.basedir);
-    sh.cd(path.join('src', 'github.com', 'gmgeo', 'libmagnacarto'));
+    sh.cd(path.join('..', '..', 'gmgeo', 'libmagnacarto'));
 
     if (sh.exec('glide install').code !== 0) {
       sh.echo('Installing dependencies failed.');
