@@ -14,6 +14,9 @@ switch (process.platform) {
     case 'linux':
         config.platform = 'linux';
         break;
+    case 'darwin':
+        config.platform = 'darwin';
+        break;
     default:
         config.platform = 'unsupported';
 }
@@ -56,14 +59,35 @@ var build = function () {
     }
 
     sh.env['GOPATH'] = sh.pwd();
+    sh.env['GO15VENDOREXPERIMENT'] = 1;
     sh.env['PATH'] += path.delimiter + path.join(sh.pwd(), 'bin');
 
-    if (sh.exec('go get github.com/tools/godep').code !== 0) {
-      sh.echo('Getting godep failed.');
+    if (sh.exec('go get github.com/Masterminds/glide').code !== 0) {
+      sh.echo('Getting glide failed.');
       sh.exit(1);
     }
 
+    sh.cd(config.basedir);
+    sh.cd(path.join('src', 'github.com', 'Masterminds', 'glide'));
+
+    if (sh.exec('make bootstrap').code == 0) {
+        if (sh.exec('make build').code == 0) {
+            sh.echo('Building glide failed.');
+            sh.exit(1);
+        }
+    }
+    else {
+        sh.echo('Building glide failed.');
+        sh.exit(1);
+    }
+
+    sh.cd(config.basedir);
     sh.cd(path.join('src', 'github.com', 'gmgeo', 'libmagnacarto'));
+
+    if (sh.exec('glide install').code !== 0) {
+      sh.echo('Installing dependencies failed.');
+      sh.exit(1);
+    }
 
     if (sh.exec('make').code !== 0) {
       sh.echo('Building library failed.');
