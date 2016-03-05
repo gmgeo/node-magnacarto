@@ -6,7 +6,7 @@ var AdmZip = require('adm-zip'),
 
 var config ={};
 config.basedir = 'magnacarto';
-config.version = 'v0.2.0';
+config.version = 'v0.2.1';
 config.repositoryUrl = 'https://github.com/gmgeo/libmagnacarto';
 config.repositoryDest = path.join('src', 'github.com', 'gmgeo', 'libmagnacarto');
 
